@@ -1,0 +1,62 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 4,
+
+    "modules-left": [
+        "sway/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "wireplumber",
+        "network",
+        "tray"
+    ],
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "clock": {
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip-format": "<big>{:%Y-%m-%d}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "CPU {usage}%"
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": "RAM {percentage}%"
+    },
+
+    "wireplumber": {
+        "format": "VOL {volume}%",
+        "format-muted": "MUTE",
+        "scroll-step": 5,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "network": {
+        "interval": 3,
+        "format-ethernet": "󰈀  {ipaddr}",
+        "format-wifi": "󰖩  {signalStrength}%",
+        "format-disconnected": "󰖪  offline",
+        "tooltip-format": "{ifname}\n{ipaddr}/{cidr}"
+    },
+
+    "tray": {
+        "spacing": 8
+    }
+}
