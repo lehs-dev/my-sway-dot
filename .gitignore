@@ -1,0 +1,11 @@
+# Fish universal variables are machine-generated state.
+.config/fish/fish_variables
+
+# Local backups / temporary files.
+*.bak
+*.tmp
+*~
+
+# Build/editor state.
+.DS_Store
+.vscode/

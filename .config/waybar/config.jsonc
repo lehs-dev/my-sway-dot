@@ -4,21 +4,9 @@
     "height": 30,
     "spacing": 4,
 
-    "modules-left": [
-        "sway/workspaces"
-    ],
-
-    "modules-center": [
-        "clock"
-    ],
-
-    "modules-right": [
-        "cpu",
-        "memory",
-        "wireplumber",
-        "network",
-        "tray"
-    ],
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "wireplumber", "network", "tray"],
 
     "sway/workspaces": {
         "disable-scroll": true,
@@ -50,9 +38,9 @@
 
     "network": {
         "interval": 3,
-        "format-ethernet": "󰈀  {ipaddr}",
-        "format-wifi": "󰖩  {signalStrength}%",
-        "format-disconnected": "󰖪  offline",
+        "format-ethernet": "LAN {ipaddr}",
+        "format-wifi": "WiFi {signalStrength}%",
+        "format-disconnected": "offline",
         "tooltip-format": "{ifname}\n{ipaddr}/{cidr}"
     },
 

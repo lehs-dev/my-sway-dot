@@ -1,0 +1,23 @@
+#!/bin/sh
+# Export Sway/Wayland environment to D-Bus/systemd and start distro-specific
+# user services. Safe to run more than once (e.g. after `swaymsg reload`).
+
+export XDG_CURRENT_DESKTOP=${XDG_CURRENT_DESKTOP:-sway}
+export XDG_SESSION_DESKTOP=${XDG_SESSION_DESKTOP:-sway}
+export XDG_SESSION_TYPE=${XDG_SESSION_TYPE:-wayland}
+
+vars='WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP XDG_SESSION_TYPE XDG_DATA_DIRS PATH'
+
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+    # --systemd is harmless when a systemd user manager exists; fall back for OpenRC.
+    dbus-update-activation-environment --systemd $vars >/dev/null 2>&1 || \
+        dbus-update-activation-environment $vars >/dev/null 2>&1 || true
+fi
+
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl --user import-environment $vars >/dev/null 2>&1 || true
+fi
+
+if [ -x /sbin/openrc ] && [ -d "$HOME/.config/rc/runlevels/gui" ]; then
+    /sbin/openrc -U gui >/dev/null 2>&1 || true
+fi

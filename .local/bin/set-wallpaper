@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+wall="$HOME/Pictures/wall.jpg"
+if [ -f "$wall" ]; then
+    exec swaymsg output '*' bg "$wall" fill
+else
+    exec swaymsg output '*' bg '#1e1e2e' solid_color
+fi
