@@ -1,4 +1,5 @@
 # my-sway-dot
+<img width="1920" height="1200" alt="Screenshot From 2026-10-04 17-03-57" src="https://github.com/user-attachments/assets/56d3bfe1-869a-4bc9-b39c-e690bb8f03f0" />
 
 Portable, minimal Sway desktop dotfiles with distro-aware installation.
 
